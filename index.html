@@ -4,23 +4,8 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation-float.min.css'/>
-	<style>
-		@import url('https://fonts.googleapis.com/css?family=Ubuntu:300,400&subset=cyrillic');
-		html, body {overflow-x:hidden;}
-		body {background:#00af40; font-family:'Ubuntu',sans-serif; color:#fff;}
-		img.logo {width:145px;}
-		.lead {font-size:2rem; line-height:1; padding-left:4.1rem; margin:80px 0;}
-		.slim {font-weight:300; line-height:1.2; font-size:.8rem}
-		.slim a {color:#fff}
-		.lang_switch {background:#fff; color:#00af40; text-align:center; cursor:pointer;}
-		@media screen and (min-width: 40em) and (max-width: 63.9375em) {
-			.lead {font-size:1.8rem;}
-		}
-		@media screen and (max-width: 39.9375em) {
-			.lead {font-size:1.5rem;}
-		}
-	</style>
+	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/foundation/6.2.2/foundation.min.css'/>
+	<link rel='stylesheet' href='./static/css/screen.css'/>
 	<title>Подольский молочный комбинат</title>
 </head>
 <body>
@@ -83,15 +68,6 @@
 		</div>
 		<div class="row" data-valign>
 			<div class="column">
-				<style>
-					table {font-size:.8rem;}
-					table tbody {background:transparent; border:none;}
-					table tbody tr:nth-child(even) {background:transparent}
-					table tbody tr:last-child {border-top:5px solid #fff;}
-					table tbody tr.stripe {background:rgba(255,255,255,.2);}
-					table input {border:none!important; box-shadow:none!important; background:transparent!important; border-bottom:1px solid #fff!important; color:#fff!important; margin-bottom:0!important; height:25px!important;}
-					table tr {text-align:center;}
-				</style>
 				<table>
 					<tr>
 						<th></th>
@@ -181,82 +157,22 @@
 					  <td></td>
 					  <td class="text-right">Всего:</td>
 					  <td id="total_summ"></td>
-					  <td><button onclick="totalSumm()" class="button success">Оформить</button></td>
+					  <td><button data-open="order_modal" data-order class="button success">Оформить</button></td>
 					</tr>
 				  </table>
 			</div>
 		</div>
 	</div>
+	<div class="reveal large" id="order_modal" data-reveal>
+		<h3>Детали заказа</h3>
+		<div data-order-details></div>
+		<p>I'm a cool paragraph that lives inside of an even cooler modal. Wins!</p>
+		<button class="close-button" data-close aria-label="Close modal" type="button">
+		  <span aria-hidden="true">&times;</span>
+		</button>
+	  </div>
 </body>
-<script>
-	let $ = selector => document.querySelector(selector)
-	let $$ = selector => document.querySelectorAll(selector)
-	
-	let vCenter = () => {
-		$$('[data-valign]:not(.hide)').forEach(el => {
-			el.style.marginTop = (window.innerHeight > el.offsetHeight)
-				? window.innerHeight / 2 - el.offsetHeight / 2 + 'px'
-				: ''
-		})
-	}
-
-	let throttle = setTimeout(vCenter, 50)
-	window.onresize = () => {
-		clearTimeout(throttle)
-		throttle = setTimeout(vCenter, 50)
-	}
-
-	let jsonp = (url, callback) => {
-		let callbackName = 'jsonp_callback_' + Math.round(100000 * Math.random())
-		window[callbackName] = data => {
-			delete window[callbackName]
-			document.body.removeChild(script)
-			callback(data)
-		}
-		let script = document.createElement('script')
-		script.src = url + (url.indexOf('?') >= 0 ? '&' : '?') + 'callback=' + callbackName
-		script.onerror = () => console.error('Script error')
-		document.body.appendChild(script)
-	}
-	jsonp('http://ipinfo.io', data => switchLang(data.country != 'RU' ? 'EN' : 'RU'))
-
-	let switchLang = lang => {
-		let selector = '[data-lang]'
-		lang = lang || $(`.hide${selector}`).dataset.lang
-		$$(selector).forEach(b => b.className = b.dataset.lang == lang ? 'row' : 'row hide')
-		vCenter()
-	}
-
-	$$('.lang_switch').forEach(el => (el.onclick = e => switchLang()))
-
-	let changeNum = e => {
-		let input = e.target,
-			val = input.value,
-			price = parseFloat(input.parentNode.previousElementSibling.innerHTML),
-			summ = input.parentNode.nextElementSibling
-
-		summ.innerHTML = val * price + '₽'
-	}
-	
-	let totalSumm = e => {
-		let total = 0
-
-		$$('table tr').forEach(i => {
-			[].forEach.call(i.childNodes, node => {
-				if(node.innerHTML){
-					if(node.innerHTML.indexOf('input') != -1){
-						let val = node.childNodes[0].value
-						node.parentNode.style.display = val ? '' : 'none'
-					}
-				}
-			})
-		})
-	}
-
-	$$('input').forEach(el => {
-		el.onchange = e => changeNum(e)
-		el.onkeyup = e => changeNum(e)
-	})
-
-</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.2.2/foundation.min.js"></script>
+<script src="./static/js/main.js"></script>
 </html>
