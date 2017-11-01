@@ -1,16 +1,3 @@
-let jq = jQuery
-jq(document).foundation()
-jq('[data-order]').click(e => {
-    let trs = ''
-    jq('table').find('input').each((i,o) => {
-        if(jq(o).val() != ''){
-            jq(o).parents('tr').find('.input').remove()
-            trs += '<tr>' + jq(o).parents('tr').html() + '</tr>'
-        }
-    })
-    jq('[data-order-details]').html('<table>' + trs + '</table>')
-})
-
 let $ = selector => document.querySelector(selector)
 let $$ = selector => document.querySelectorAll(selector)
 
@@ -57,7 +44,7 @@ let changeNum = e => {
         price = parseFloat(input.parentNode.previousElementSibling.innerHTML),
         summ = input.parentNode.nextElementSibling
 
-    summ.innerHTML = val * price + '₽'
+    summ.innerHTML = (val * price).toFixed(2) + '₽'
 }
 
 $$('input').forEach(el => {
