@@ -51,3 +51,5 @@ $$('input').forEach(el => {
     el.onchange = e => changeNum(e)
     el.onkeyup = e => changeNum(e)
 })
+
+$('#confirm').click($.post("/confirm", function({1:2, 2:5}){}))
