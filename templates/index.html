@@ -14,7 +14,7 @@
 			<div class="column small-12 medium-9 large-8 small-centered">
 				<div class="row">
 					<div class="column small-9 medium-10 large-11">
-						<a href="/"><img src="./static/img/logo.png" class="logo" alt="Подольский молочный комбинат"></a>
+						<a href="/"><img src="{% static '/img/logo.png' %}" class="logo" alt="Подольский молочный комбинат"></a>
 					</div>
 					<div class="column small-3 medium-2 large-1">
 						<div class="lang_switch">EN</div>
@@ -24,8 +24,10 @@
 					<div class="column small-12">
 						<p class="lead">Производство <br class="show-for-large-only">натуральных молочных продуктов <br class="show-for-large-only">на базе высоких технологий</p>
 					</div>
+					{%block content%}
 					<div class="column">
-						{%block content%}
+						
+						<form action="" method="POST">{%csrf_token%}
 							<table>
 								<tr>
 									<th></th>
@@ -44,7 +46,7 @@
 											<td>{{product.volume}}, {{product.get_pack_display}}</td>
 											<td>{{product.expiration}} сут.</td>
 											<td>{{product.price}}₽</td>
-											<td><input type="number" min="0" max="100" placeholder="0" name="{{product.id}}" /></td>
+											<td><input type="number" min="0" max="100" placeholder="0" name="{{product.id}}" class="product" /></td>
 											<td></td>
 										</tr>
 									{%endfor%}
@@ -71,8 +73,9 @@
 									</td>
 								</tr>
 							</table>
-						{%endblock content%}
+						</form>
 					</div>
+					{%endblock content%}
 				</div>
 				<div class="row">
 						<div class="column small-5 medium-4 large-3 end">
@@ -91,7 +94,7 @@
 			<div class="column small-12 medium-9 large-8 small-centered">
 				<div class="row">
 					<div class="column small-9 medium-10 large-11">
-						<a href="/"><img src="./static/img/logo_en.png" class="logo" alt="Подольский молочный комбинат"></a>
+						<a href="/"><img src="{% static '/img/logo_en.png' %}" class="logo" alt="Подольский молочный комбинат"></a>
 					</div>
 					<div class="column small-3 medium-2 large-1">
 						<div class="lang_switch">RU</div>
@@ -118,5 +121,5 @@
 	</div>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-<script src="./static/js/main.js"></script>
+<script src="{% static '/js/main.js' %}"></script>
 </html>

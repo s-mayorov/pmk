@@ -35,3 +35,26 @@ class Product(models.Model):
 
 	def __str__(self):
 		return self.title
+
+
+class Order(models.Model):
+	name = models.CharField(max_length=255, verbose_name='Имя', blank=True)
+	tel = models.CharField(max_length=50, verbose_name='Телефон', blank=True)
+	order = models.TextField(verbose_name='Содержимое заказа', blank=True)
+	delivery_date = models.DateField(verbose_name='Дата доставки', blank=True, null=True)
+	created_at = models.DateTimeField(auto_now_add=True)
+	modified_at = models.DateTimeField(auto_now=True)
+
+	class Meta:
+		verbose_name='Заказ'
+		verbose_name_plural='Заказы'
+
+	def __str__(self):
+		return str(self.id)
+
+
+	def generate_order_text(self, ordered_items):
+		for k, v in ordered_items.items():
+			item = Product.objects.get(pk=k)
+			self.order += u'{}\t{}\t-- {}ед \n'.format(item.get_category_display(), item.title, v)
+		self.save()
