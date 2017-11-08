@@ -49,6 +49,7 @@
 {%endblock%}
 {% block bottom_js %}
 	<script src="{% static '/js/datepicker.min.js' %}"></script>
+	<script src="{% static '/js/maskedinput.min.js' %}"></script>
 	<script>
 		var disabledDays = [0,1,2,4,6];
 		jQuery('#id_delivery_date').datepicker({
@@ -64,5 +65,7 @@
 				}
 			}
 		}).hide()
+
+		jQuery('#id_tel').mask("(999) 999-9999");
 	</script>
 {% endblock %}

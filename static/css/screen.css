@@ -35,3 +35,5 @@ table tr {text-align:center;}
 form {margin-bottom:80px;}
 form label {color:#fff;}
 .datepicker {width:100%!important; margin-bottom:1rem;}
+.datepicker--day-name {color:rgba(0, 175, 64, .8)!important;}
+.datepicker--cell.-selected-.-focus- {background:#00af40!important}

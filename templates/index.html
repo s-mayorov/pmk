@@ -30,7 +30,7 @@
 					<div class="row">
 					<div class="column">
 						<form action="" method="POST">{%csrf_token%}
-							<table>
+							<table class="show-for-medium">
 								<tr>
 									<th></th>
 									<th></th>
@@ -52,7 +52,6 @@
 											<td></td>
 										</tr>
 									{%endfor%}
-
 								{%endfor%}
 								<tr class="bordered">
 									<td></td>
@@ -65,6 +64,42 @@
 								</tr>
 								<tr>
 									<td colspan="7">
+										<div class="steps">
+											<ul>
+												<li class="checked">Выберите товары</li>
+												<li>Оформите заказ</li>
+											</ul>
+										</div>
+									</td>
+								</tr>
+							</table>
+							<table class="show-for-small-only">
+								<tr>
+									<th></th>
+									<th width="10%">цена</th>
+									<th width="15%">кол-во</th>
+									<th width="10%">итого</th>
+								</tr>
+								{%for cat, titles in products.items %}
+									{%for product in titles %}
+										<tr>
+											{% if forloop.counter == 1 %}
+											<tr class="stripe">
+												<th colspan="4" class="text-left">{{cat}}</th>
+											</tr>
+											{%endif%}
+											<td class="text-left">{{product.title}}</td>
+											<td>{{product.price}}₽</td>
+											<td><input type="number" min="0" max="100" placeholder="0" name="{{product.id}}" class="product" /></td>
+											<td></td>
+										</tr>
+									{%endfor%}
+								{%endfor%}
+								<tr class="bordered">
+									<td colspan=4 class="text-right"><button id="confirm" data-open="order_modal" data-order class="button success">Оформить</button></td>
+								</tr>
+								<tr>
+									<td colspan="4">
 										<div class="steps">
 											<ul>
 												<li class="checked">Выберите товары</li>

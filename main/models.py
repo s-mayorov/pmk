@@ -42,6 +42,7 @@ class Order(models.Model):
 	tel = models.CharField(max_length=50, verbose_name='Телефон', blank=True)
 	order = models.TextField(verbose_name='Содержимое заказа', blank=True)
 	delivery_date = models.DateField(verbose_name='Дата доставки', blank=True, null=True)
+	message = models.TextField(verbose_name='Комментарий к заказу', blank=True, null=True)
 	created_at = models.DateTimeField(auto_now_add=True)
 	modified_at = models.DateTimeField(auto_now=True)
 

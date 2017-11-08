@@ -15,4 +15,7 @@ class OrderForm(forms.ModelForm):
 			'delivery_date': forms.TextInput(attrs={'required':True}),
 			'order': forms.TextInput(attrs={'type':'hidden', 'required':True}),
 		}
+		labels = {
+            'tel':u'Телефон без +7',
+        }
 		exclude = ()
