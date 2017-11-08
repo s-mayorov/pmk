@@ -26,6 +26,16 @@
 						<p class="lead">Производство <br class="show-for-large-only">натуральных молочных продуктов <br class="show-for-large-only">на базе высоких технологий</p>
 					</div>
 				</div>
+
+
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+				
 					{%block content%}
 					<div class="row">
 					<div class="column">

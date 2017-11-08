@@ -10,6 +10,8 @@ class Product(models.Model):
 		('3', 'Йогурт'),
 		('4', 'Кефир'),
 		('5', 'Творог'),
+		('6', 'Йогурт греческий'),
+
 	)
 
 	PACKAGING = (
@@ -25,6 +27,7 @@ class Product(models.Model):
 	pack = models.CharField(max_length=1, choices=PACKAGING, verbose_name='Тип упаковки')
 	expiration = models.PositiveIntegerField(verbose_name='Срок годности (сут.)')
 	price = models.DecimalField(verbose_name='Цена', max_digits=5, decimal_places=2)
+	available = models.BooleanField(verbose_name='В наличии', default=True)
 
 	created_at = models.DateTimeField(auto_now_add=True)
 	modified_at = models.DateTimeField(auto_now=True)
@@ -40,9 +43,11 @@ class Product(models.Model):
 class Order(models.Model):
 	name = models.CharField(max_length=255, verbose_name='Имя', blank=True)
 	tel = models.CharField(max_length=50, verbose_name='Телефон', blank=True)
+	email = models.EmailField(verbose_name='Электронная почта')
 	order = models.TextField(verbose_name='Содержимое заказа', blank=True)
 	delivery_date = models.DateField(verbose_name='Дата доставки', blank=True, null=True)
 	message = models.TextField(verbose_name='Комментарий к заказу', blank=True, null=True)
+	
 	created_at = models.DateTimeField(auto_now_add=True)
 	modified_at = models.DateTimeField(auto_now=True)
 
@@ -51,7 +56,7 @@ class Order(models.Model):
 		verbose_name_plural='Заказы'
 
 	def __str__(self):
-		return str(self.id)
+		return self.name or str(self.id)
 
 
 	def generate_order_text(self, ordered_items):

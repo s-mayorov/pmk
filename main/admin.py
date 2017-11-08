@@ -4,7 +4,7 @@ from .models import Product, Order
 
 
 class ProductAdmin(admin.ModelAdmin):
-	list_display = ('category', 'title', 'pack', 'volume', 'expiration')
+	list_display = ('category', 'title', 'available', 'pack', 'volume', 'expiration')
 
 
 
