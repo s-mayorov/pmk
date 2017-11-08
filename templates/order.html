@@ -1,34 +1,68 @@
 {%extends "index.html"%}
+{%load static%}
+{% block head_styles %}
+<link rel='stylesheet' href='{% static "css/datepicker.min.css" %}'/>
+{% endblock %}
 
 {%block content%}
 <div class="row">
 	<div class="column small-12">
 		<p class="lead">Оплатить</p>
 	</div>
-	<div class="column">
+</div>
+<div class="row">
+	<div class="column small-12 medium-10 medium-centered">
 		<form action="" method="POST">{%csrf_token%}
 			<div class="row">
-			{{order_form.as_p}}
-			<!--</div>
-				<div class="column small-12 medium-6">
-					<input type="text" name="name" placeholder="Имя*" required>
+			{% for field in order_form %}
+				{% if field.name != 'order' %}
+				<div class="column small-12 medium-6 large-5">
+					{{field.label_tag}}
 				</div>
-				<div class="column small-12 medium-6">
-					<input type="email" name="email" placeholder="Email*" required>
+				{% endif %}
+				<div class="column small-12 medium-6 large-7">
+					{{field}}
 				</div>
-			</div>							
-			<div class="row">
-				<div class="column small-12 medium-6">
-					<input type="text" name="delivery_date" placeholder="Дата доставки" required>
-				</div>
-			</div>-->
-			<div class="row">
-				<!--<div class="column small-12 medium-6">
-					<input type="tel" name="tel" placeholder="Телефон">
-				</div>-->
-				<div class="column small-12 medium-6">
-					<input type="submit" value="Заказать" class="button expanded success">
-				</div>
+			{% endfor %}
+			<div class="column small-12 medium-6 large-7">
+				<input type="submit" value="Заказать" class="button expanded success">
 			</div>
 		</form>
+	</div>
+</div>
+<div class="row">
+	<div class="column small-12 medium-10 medium-centered">
+		<table>
+			<tr>
+				<td colspan="7">
+					<div class="steps">
+						<ul>
+							<li class="checked">Выберите товары</li>
+							<li class="checked">Оформите заказ</li>
+						</ul>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>
 {%endblock%}
+{% block bottom_js %}
+	<script src="{% static '/js/datepicker.min.js' %}"></script>
+	<script>
+		var disabledDays = [0,1,2,4,6];
+		jQuery('#id_delivery_date').datepicker({
+			inline: true,
+			onRenderCell: function (date, cellType) {
+				if (cellType == 'day') {
+					var today = new Date()
+					var day = date.getDay(),
+						isDisabled = disabledDays.indexOf(day) != -1 || date.toString() == new Date(2017, 10, 8).toString();
+					return {
+						disabled: isDisabled
+					}
+				}
+			}
+		}).hide()
+	</script>
+{% endblock %}
