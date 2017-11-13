@@ -24,7 +24,7 @@ let jsonp = (url, callback) => {
     }
     let script = document.createElement('script')
     script.src = url + (url.indexOf('?') >= 0 ? '&' : '?') + 'callback=' + callbackName
-    script.onerror = () => console.error('Script error')
+    script.onerror = () => console.warn('Language autodetect failed')
     document.body.appendChild(script)
 }
 jsonp('http://ipinfo.io', data => switchLang(data.country != 'RU' ? 'EN' : 'RU'))
@@ -38,13 +38,22 @@ let switchLang = lang => {
 
 $$('.lang_switch').forEach(el => (el.onclick = e => switchLang()))
 
-let changeNum = e => {
+let changeNum = function(e){
     let input = e.target,
-        val = input.value,
-        price = parseFloat(input.parentNode.previousElementSibling.innerHTML),
-        summ = input.parentNode.nextElementSibling
+    val = input.value,
+    price = parseFloat(input.parentNode.previousElementSibling.innerHTML),
+    summField = input.parentNode.nextElementSibling,
+    summ = 0
 
-    summ.innerHTML = (val * price).toFixed(2) + '₽'
+    summField.innerHTML = (val * price).toFixed(2) + '₽'
+
+    $$('input.product').forEach(input => {
+        let check = input.parentNode.nextElementSibling.innerHTML
+        summ += parseFloat(check !== '' ? check : 0)
+    })
+
+    $('#total_summ').innerHTML = summ + '₽'
+        
 }
 
 $$('input.product').forEach(el => {

@@ -29,11 +29,12 @@
 
 
 {% if messages %}
-<ul class="messages">
-    {% for message in messages %}
-    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+	{% for message in messages %}
+	<div class="callout {{ message.tags }}">{{ message }}
+		<button class="close-button" aria-label="Dismiss alert" type="button" data-close onclick="this.parentNode.style.display = 'none'">
+			<span aria-hidden="true">&times;</span>
+		</button></div>
     {% endfor %}
-</ul>
 {% endif %}
 				
 					{%block content%}
