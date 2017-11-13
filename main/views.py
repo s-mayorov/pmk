@@ -15,10 +15,9 @@ from .forms import OrderForm
 def index(request):
 	if request.method == "POST":
 		order = Order()
-		order.delivery_date = get_nearest_date()
 		items = dict(request.POST)
 		items.pop('csrfmiddlewaretoken')
-		ordered_items = {int(k): int(v[0]) for k, v in items.items() if v[0] }
+		ordered_items = { int(k): int(v[0]) for k, v in items.items() if v[0] }
 		order.generate_order_text(ordered_items)
 		order.save()
 
@@ -34,24 +33,20 @@ def index(request):
 
 def order(request, order_id=0):
 	order = get_object_or_404(Order, pk=order_id)
-	order_form = OrderForm(request.POST or None, instance=order)
-	if order_form.is_valid():
-		order_form.save()
-		messages.success(request, 'Ваш заказ успешно оформлен')
-		return HttpResponseRedirect('/')				
+	if not order.completed:
+		order_form = OrderForm(request.POST or None, instance=order)
+		if order_form.is_valid():
+			order_form.save()
+			order.completed = True
+			order.save()
+			messages.success(request, 'Ваш заказ успешно оформлен')
+			return HttpResponseRedirect('/')				
 
 
-	return render(request, 'order.html', {"order_form": order_form })
+		return render(request, 'order.html', {"order_form": order_form })
+	else:
+		raise Http404
 	
 
-def get_nearest_date():
-	"""
-	Заказ можно оформить только на среду или пятницу,
-	не допускается оформление заказа на текущий день.
-	"""
-	d = datetime.datetime.now() + datetime.timedelta(days=1)
-	while d.weekday() not in (2, 4):
-		print(d.weekday())
-		d += datetime.timedelta(days=1)
-
-	return d
+def error_404(request):
+	return render(request, '404.html')
