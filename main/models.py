@@ -36,8 +36,8 @@ class Product(models.Model):
 		verbose_name='Товар'
 		verbose_name_plural='Товары'
 
-	def __str__(self):
-		return self.title
+	def __unicode__(self):
+		return unicode(self.title)
 
 
 class Order(models.Model):
@@ -56,8 +56,8 @@ class Order(models.Model):
 		verbose_name='Заказ'
 		verbose_name_plural='Заказы'
 
-	def __str__(self):
-		return self.name or str(self.id)
+	def __unicode__(self):
+		return unicode(self.name) or str(self.id)
 
 
 	def generate_order_text(self, ordered_items):

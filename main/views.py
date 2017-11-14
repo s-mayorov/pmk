@@ -1,15 +1,21 @@
 # coding: utf-8
 
+from __future__ import unicode_literals
+
+import requests
 import datetime
 from collections import defaultdict
 
 from django.shortcuts import render, get_object_or_404
-from django.http import Http404, HttpResponseRedirect
+from django.http import Http404, HttpResponseRedirect, HttpResponse
 from django.core.urlresolvers import reverse
+from django.core.mail import send_mail
 from django.contrib import messages
+from django.utils.http import urlencode
 
 from .models import Product, Order
 from .forms import OrderForm
+from .smsc import SMSC
 
 
 def index(request):
@@ -20,8 +26,7 @@ def index(request):
 		ordered_items = { int(k): int(v[0]) for k, v in items.items() if v[0] }
 		order.generate_order_text(ordered_items)
 		order.save()
-
-		return HttpResponseRedirect(reverse('order-view', kwargs={'order_id': order.id}))	
+		return HttpResponseRedirect(reverse('order-view', kwargs={'order_id': order.id}))
 	else:
 		products_raw = Product.objects.filter(available=True).order_by('-category')
 		products = defaultdict(list)
@@ -39,7 +44,8 @@ def order(request, order_id=0):
 			order_form.save()
 			order.completed = True
 			order.save()
-			messages.success(request, 'Ваш заказ успешно оформлен')
+			r = send_client_sms(order)
+			messages.success(request, u'Ваш заказ успешно оформлен')
 			return HttpResponseRedirect('/')				
 
 
@@ -48,5 +54,23 @@ def order(request, order_id=0):
 		raise Http404
 	
 
-def error_404(request):
-	return render(request, '404.html')
+
+def send_current_orders(request):
+	date = datetime.datetime.now() + datetime.timedelta(days=1)
+	orders = Order.objects.filter(delivery_date=date)
+	order_template = '{}, {}, {}\n{}\n\n'
+	text = u''
+
+	for o in orders:
+		text += order_template.format(o.name, o.email, o.tel, o.order)
+
+	send_mail(u'Заказы на %s' % date, text, 'robot@inkoro.ru', ['zakupki@food-prod.ru'])
+	return HttpResponse(status=200)
+
+
+def send_client_sms(order):
+	clear_tel = "7"+"".join(c for c in order.tel if c.isdigit())
+	message = u'{}, ваш заказ готовят! Доставим: {} Inkoro.ru'.format(order.name, order.delivery_date)
+
+	smsc = SMSC()
+	r = smsc.send_sms(clear_tel, message.encode('utf8'))
