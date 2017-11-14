@@ -2,7 +2,6 @@
 
 from __future__ import unicode_literals
 
-import requests
 import datetime
 from collections import defaultdict
 
@@ -64,7 +63,7 @@ def send_current_orders(request):
 	for o in orders:
 		text += order_template.format(o.name, o.email, o.tel, o.order)
 
-	send_mail(u'Заказы на %s' % date, text, 'robot@inkoro.ru', ['zakupki@food-prod.ru'])
+	send_mail(u'Заказы на %s' % date.strftime('%d.%m.%Y'), text, 'robot@inkoro.ru', ['zakupki@food-prod.ru'])
 	return HttpResponse(status=200)
 
 
