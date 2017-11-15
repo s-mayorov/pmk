@@ -47,6 +47,7 @@ class Order(models.Model):
 	order = models.TextField(verbose_name='Содержимое заказа', blank=True)
 	delivery_date = models.DateField(verbose_name='Дата доставки', blank=True, null=True)
 	message = models.TextField(verbose_name='Комментарий к заказу', blank=True, null=True)
+	total = models.DecimalField(verbose_name='Сумма заказа', max_digits=11, decimal_places=2, default=0)
 	completed = models.BooleanField(editable=False, default=False)
 
 	created_at = models.DateTimeField(auto_now_add=True)
@@ -60,8 +61,9 @@ class Order(models.Model):
 		return unicode(self.name) or str(self.id)
 
 
-	def generate_order_text(self, ordered_items):
+	def generate_order(self, ordered_items):
 		for k, v in ordered_items.items():
 			item = Product.objects.get(pk=k)
 			self.order += u'{}\t{}\t-- {}ед \n'.format(item.get_category_display(), item.title, v)
+			self.total += item.price*v
 		self.save()

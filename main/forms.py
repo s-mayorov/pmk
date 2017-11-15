@@ -20,4 +20,4 @@ class OrderForm(forms.ModelForm):
 		labels = {
             'tel':u'Телефон без +7',
         }
-		exclude = ()
+		exclude = ('total',)

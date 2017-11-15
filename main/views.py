@@ -23,7 +23,7 @@ def index(request):
 		items = dict(request.POST)
 		items.pop('csrfmiddlewaretoken')
 		ordered_items = { int(k): int(v[0]) for k, v in items.items() if v[0] }
-		order.generate_order_text(ordered_items)
+		order.generate_order(ordered_items)
 		order.save()
 		return HttpResponseRedirect(reverse('order-view', kwargs={'order_id': order.id}))
 	else:
@@ -69,7 +69,7 @@ def send_current_orders(request):
 
 def send_client_sms(order):
 	clear_tel = "7"+"".join(c for c in order.tel if c.isdigit())
-	message = u'{}, ваш заказ готовят! Доставим: {} Inkoro.ru'.format(order.name, order.delivery_date)
+	message = u'{}, ваш заказ готовят! Доставим: {} Сумма: {} Inkoro.ru'.format(order.name, order.delivery_date, order.total)
 
 	smsc = SMSC()
 	r = smsc.send_sms(clear_tel, message.encode('utf8'))
