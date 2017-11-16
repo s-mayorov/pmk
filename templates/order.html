@@ -11,26 +11,21 @@
 	</div>
 </div>
 <div class="row">
-{% for field in order_form %}
-    <div class="fieldWrapper">
-        {{ field.errors }}
-        {{ field.label_tag }}
-        {% if field.help_text %}
-        <p class="help">{{ field.help_text|safe }}</p>
-        {% endif %}
-    </div>
-{% endfor %}
 	<div class="column small-12 medium-10 medium-centered">
 		<form action="" method="POST">{%csrf_token%}
 			<div class="row">
 			{% for field in order_form %}
 				{% if field.name != 'order' %}
 				<div class="column small-12 medium-6 large-5">
-					{{field.label_tag}}
+					{{field.label_tag}}<br>
+					{{ field.errors }}
 				</div>
 				{% endif %}
 				<div class="column small-12 medium-6 large-7">
 					{{field}}
+					{% if field.help_text %}
+					<p class="help">{{ field.help_text|safe }}</p>
+					{% endif %}
 				</div>
 			{% endfor %}
 			<div class="column small-12 medium-6 large-7">

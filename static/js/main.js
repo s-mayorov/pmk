@@ -52,7 +52,7 @@ let changeNum = function(e){
         summ += parseFloat(check !== '' ? check : 0)
     })
 
-    $('#total_summ').innerHTML = summ + '₽'
+    $$('#total_summ').forEach(o => o.innerHTML = summ + '₽')
         
 }
 
