@@ -6,7 +6,7 @@ from .base import *
 # Стандартные настройки Django
 SECRET_KEY = 'keep-it-secret'
 DEBUG = True
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['']
 
 STATIC_ROOT = ''
 STATICFILES_DIRS = ''

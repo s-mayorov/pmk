@@ -1,4 +1,5 @@
 *.pyc
 pmk/settings/local.py
 .vscode/
-assets/*mails
+assets/
+*mails/
