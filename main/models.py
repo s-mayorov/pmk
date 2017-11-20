@@ -3,6 +3,11 @@ from django.db import models
 
 
 class Product(models.Model):
+	"""
+	Модель для продукта
+	- available 
+		включает\отключает показ продукт в каталоге
+	"""
 	CATEGORIES = (
 
 		('1', 'Молоко'),
@@ -37,10 +42,27 @@ class Product(models.Model):
 		verbose_name_plural='Товары'
 
 	def __unicode__(self):
-		return unicode(self.title)
+		return unicode(self.get_full_name())
+
+	def get_full_name(self):
+		return self.get_category_display() + ' ' + self.title
+
 
 
 class Order(models.Model):
+	"""
+	Заказ
+	- delivery_date
+		Дата заказа может быть только средой или пятницей, 
+		заказ день в день невозможен.
+		TODO: Валидация delivery_date сейчас только во фронте, добавить
+			  валидацию на сервере
+
+	- completed
+		Заказ создается в два приема, сначала пустой заказ с привязкой 
+		продуктов заказа, потом - данные покупателя. Completed показывает,
+		закончен ли заказ.
+	"""
 	name = models.CharField(max_length=255, verbose_name='Имя', blank=True)
 	tel = models.CharField(max_length=50, verbose_name='Телефон', blank=True)
 	email = models.EmailField(verbose_name='Электронная почта')
@@ -61,9 +83,14 @@ class Order(models.Model):
 		return unicode(self.name) or str(self.id)
 
 
-	def generate_order(self, ordered_items):
-		for k, v in ordered_items.items():
-			item = Product.objects.get(pk=k)
-			self.order += u'{}\t{}\t-- {}ед \n'.format(item.get_category_display(), item.title, v)
-			self.total += item.price*v
-		self.save()
+class OrderItem(models.Model):
+	order = models.ForeignKey(Order)
+	item = models.ForeignKey(Product)
+	quantity = models.PositiveIntegerField(verbose_name='Количество')
+
+	class Meta:
+		verbose_name = 'Позиция'
+		verbose_name_plural = 'Позиции'
+
+	def __unicode__(self):
+		return str(self.id)

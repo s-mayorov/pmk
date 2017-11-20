@@ -11,7 +11,7 @@ class OrderForm(forms.ModelForm):
 		model = Order
 		widgets = {
 			'name': forms.TextInput(attrs={'placeholder': u'Стив Джобс*', 'required': True}),
-			'tel': forms.TextInput(attrs={'placeholder': u'(___) ___-____*', 'required': True}),
+			'tel': forms.TextInput(attrs={'placeholder': u'(___) ___-____*', 'type': 'tel', 'required': True}),
 			'email': forms.TextInput(attrs={'placeholder': u'steve@apple.com*', 'required': True}),
 			'comment': forms.Textarea(attrs={'placeholder': u'Не звоните с 14:00 до 15:00, пожалуйста'}),
 			'delivery_date': forms.TextInput(attrs={'required':True}),
