@@ -63,7 +63,10 @@ def order(request, order_id=0):
 			order_form.save()
 			order.completed = True
 			order.save()
-			#send_client_sms(order)
+
+			# не отправляем смс из локала
+			if not settings.DEBUG:
+				send_client_sms(order)
 			messages.success(request, u'Ваш заказ успешно оформлен')
 			return redirect('/')				
 

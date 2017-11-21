@@ -49,7 +49,7 @@
 					{%block content%}
 					<div class="row">
 					<div class="column">
-						<form action="" method="POST">{%csrf_token%}
+						<form action="" method="POST" id="products_form">{%csrf_token%}
 							<table class="show-for-medium">
 								<tr>
 									<th></th>
@@ -64,11 +64,11 @@
 									{%for product in titles %}
 										<tr {%if forloop.parentloop.counter|divisibleby:2%} class="stripe"{%endif%}>
 											<td>{%if forloop.counter == 1%}{{cat}}{%endif%}</td>
-											<td>{{product.title}}</td>
+											<td class="item_title">{{product.title}}</td>
 											<td>{{product.volume}}, {{product.get_pack_display}}</td>
 											<td>{{product.expiration}} сут.</td>
 											<td>{{product.price}}₽</td>
-											<td><input type="number" min="0" max="100" placeholder="0" name="{{product.id}}" class="product" /></td>
+											<td><input id="item{{product.id}}" type="number" min="0" max="100" placeholder="0" name="{{product.id}}" class="product" /></td>
 											<td></td>
 										</tr>
 									{%endfor%}

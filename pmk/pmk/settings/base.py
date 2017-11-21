@@ -28,6 +28,9 @@ INSTALLED_APPS = [
 
     # internal apps
     'main',
+
+    # functional tests
+    'func_tests',
 ]
 
 MIDDLEWARE = [
