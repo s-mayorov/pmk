@@ -18,7 +18,7 @@ from django.utils.http import urlencode
 
 from .models import Product, Order, OrderItem
 from .forms import OrderForm
-from .smsc import SMSC
+from .helpers import send_client_sms, generate_current_orders
 
 
 def index(request):
@@ -28,7 +28,11 @@ def index(request):
 	if request.method == "POST":
 		order = Order.objects.create()
 		items = dict(request.POST)
-		items.pop('csrfmiddlewaretoken')
+
+		try:
+			items.pop('csrfmiddlewaretoken')
+		except KeyError:
+			return redirect(reverse('index_view'))
 		total = Decimal(0)
 		for k, v in items.items():
 			 if v[0]:
@@ -41,7 +45,7 @@ def index(request):
 		order.total = total
 		order.save()
 
-		return redirect(reverse('order-view', kwargs={'order_id': order.id}))
+		return redirect(reverse('order_view', kwargs={'order_id': order.id}))
 
 	products_raw = Product.objects.filter(available=True).order_by('-category')
 	products = defaultdict(list)
@@ -109,44 +113,4 @@ def send_current_orders(request):
 	return HttpResponse(status=200)
 
 
-##########################################################
-##### Helpers
-##########################################################
 
-
-def generate_current_orders(date):
-	"""
-	Генерация структуры заказов для записи в файл
-	"""
-	# достаем заказы на "завтра" и все товары
-	orders = Order.objects.filter(delivery_date=date)
-	products = Product.objects.all()
-
-	# заголовок csv  - номера заказов
-	header_row = [' '] + [o.id for o in orders]
-	all_orders = []
-
-	for p in products:
-		# для каждого продукта создаем ряд, первая ячейка - название 
-		order_row = [p.get_full_name().encode('utf-8')]
-		# проходим по всем заказам
-		for o in orders:
-			# смотрим содержимое каждого заказа
-			ps = [oi.item for oi in o.orderitem_set.all()]
-			# если товар в этом заказе есть - ставим в ячейку заказанное количество
-			if p in ps:
-				order_row.append(o.orderitem_set.get(item_id=p.id).quantity)
-			# если нет - ставим 0
-			else:
-				order_row.append(0)
-		all_orders.append(order_row)
-
-	return (header_row, all_orders)
-
-
-def send_client_sms(order):
-	clear_tel = "7"+"".join(c for c in order.tel if c.isdigit())
-	message = u'{}, ваш заказ готовят! Доставим: {} Сумма: {} Inkoro.ru'.format(order.name, order.delivery_date, order.total)
-
-	smsc = SMSC()
-	r = smsc.send_sms(clear_tel, message.encode('utf8'), sender="PMK")

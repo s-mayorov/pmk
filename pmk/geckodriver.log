@@ -339,3 +339,210 @@ JavaScript error: http://localhost:48583/order/84/, line 180: TypeError: jQuery(
 JavaScript error: http://localhost:48395/order/84/, line 180: TypeError: jQuery(...).datepicker is not a function
 [Child 10508, Chrome_ChildThread] WARNING: pipe error (20): Соединение разорвано другой стороной: file /build/firefox-HLWaua/firefox-57.0+build4/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
 [Child 10508, Chrome_ChildThread] WARNING: pipe error (3): Соединение разорвано другой стороной: file /build/firefox-HLWaua/firefox-57.0+build4/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+1511361785284	geckodriver	INFO	geckodriver 0.19.1
+1511361785291	geckodriver	INFO	Listening on 127.0.0.1:37455
+1511361786413	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-profile" "/tmp/rust_mozprofile.6LI7qb3OewFZ"
+1511361787332	Marionette	INFO	Enabled via --marionette
+1511361788582	Marionette	INFO	Listening on port 36659
+1511361788642	Marionette	WARN	TLS certificate errors will be ignored for this session
+1511361788689	Marionette	DEBUG	Register listener.js for window 2147483649
+1511361788704	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1511361788750	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1511361788750	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1511361789118	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:38245/"
+1511361789577	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:38245/"
+JavaScript error: http://localhost:38245/order/84/, line 180: TypeError: jQuery(...).datepicker is not a function
+[Child 27555, Chrome_ChildThread] WARNING: pipe error (19): Соединение разорвано другой стороной: file /build/firefox-HLWaua/firefox-57.0+build4/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+[Child 27555, Chrome_ChildThread] WARNING: pipe error (3): Соединение разорвано другой стороной: file /build/firefox-HLWaua/firefox-57.0+build4/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+1511363506863	geckodriver	INFO	geckodriver 0.19.1
+1511363506866	geckodriver	INFO	Listening on 127.0.0.1:33767
+1511363507952	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-profile" "/tmp/rust_mozprofile.PKIsBJZ4YcGP"
+1511363508319	Marionette	INFO	Enabled via --marionette
+1511363509201	Marionette	INFO	Listening on port 35671
+1511363509262	Marionette	WARN	TLS certificate errors will be ignored for this session
+1511363509311	Marionette	DEBUG	Register listener.js for window 2147483649
+1511363509336	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1511363509376	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1511363509377	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1511363509735	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:38071/"
+1511363510124	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:38071/"
+JavaScript error: http://localhost:38071/order/84/, line 180: TypeError: jQuery(...).datepicker is not a function
+[Child 28988, Chrome_ChildThread] WARNING: pipe error (20): Соединение разорвано другой стороной: file /build/firefox-HLWaua/firefox-57.0+build4/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+[Child 28988, Chrome_ChildThread] WARNING: pipe error (3): Соединение разорвано другой стороной: file /build/firefox-HLWaua/firefox-57.0+build4/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+1511363546816	geckodriver	INFO	geckodriver 0.19.1
+1511363546818	geckodriver	INFO	Listening on 127.0.0.1:38381
+1511363547905	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-profile" "/tmp/rust_mozprofile.7Y2E79hXlfEs"
+1511363548282	Marionette	INFO	Enabled via --marionette
+1511363549179	Marionette	INFO	Listening on port 45647
+1511363549233	Marionette	WARN	TLS certificate errors will be ignored for this session
+1511363549292	Marionette	DEBUG	Register listener.js for window 2147483649
+1511363549306	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1511363549339	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1511363549339	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1511363549569	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:51949/"
+1511363549784	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:51949/"
+JavaScript error: http://localhost:51949/order/84/, line 180: TypeError: jQuery(...).datepicker is not a function
+[Child 29166, Chrome_ChildThread] WARNING: pipe error (19): Соединение разорвано другой стороной: file /build/firefox-HLWaua/firefox-57.0+build4/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+[Child 29166, Chrome_ChildThread] WARNING: pipe error (3): Соединение разорвано другой стороной: file /build/firefox-HLWaua/firefox-57.0+build4/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+1511363594989	geckodriver	INFO	geckodriver 0.19.1
+1511363594991	geckodriver	INFO	Listening on 127.0.0.1:53697
+1511363596074	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-profile" "/tmp/rust_mozprofile.D2VnKL9JSUrM"
+1511363596440	Marionette	INFO	Enabled via --marionette
+1511363597323	Marionette	INFO	Listening on port 40381
+1511363597392	Marionette	WARN	TLS certificate errors will be ignored for this session
+1511363597450	Marionette	DEBUG	Register listener.js for window 2147483649
+1511363597466	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1511363597509	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1511363597509	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1511363597745	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:58771/"
+1511363598182	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:58771/"
+JavaScript error: http://localhost:58771/order/84/, line 180: TypeError: jQuery(...).datepicker is not a function
+[Child 29358, Chrome_ChildThread] WARNING: pipe error (21): Соединение разорвано другой стороной: file /build/firefox-HLWaua/firefox-57.0+build4/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+[Child 29358, Chrome_ChildThread] WARNING: pipe error (3): Соединение разорвано другой стороной: file /build/firefox-HLWaua/firefox-57.0+build4/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+1511363630709	geckodriver	INFO	geckodriver 0.19.1
+1511363630711	geckodriver	INFO	Listening on 127.0.0.1:42453
+1511363631795	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-profile" "/tmp/rust_mozprofile.w1dcWkrTeB3g"
+1511363632164	Marionette	INFO	Enabled via --marionette
+1511363633067	Marionette	INFO	Listening on port 43893
+1511363633124	Marionette	WARN	TLS certificate errors will be ignored for this session
+1511363633176	Marionette	DEBUG	Register listener.js for window 2147483649
+1511363633189	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1511363633234	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1511363633235	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1511363633472	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:45963/"
+1511363633855	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:45963/"
+[Child 29518, Chrome_ChildThread] WARNING: pipe error (35): Соединение разорвано другой стороной: file /build/firefox-HLWaua/firefox-57.0+build4/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+[Child 29518, Chrome_ChildThread] WARNING: pipe error (20): Соединение разорвано другой стороной: file /build/firefox-HLWaua/firefox-57.0+build4/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+[Child 29518, Chrome_ChildThread] WARNING: pipe error (3): Соединение разорвано другой стороной: file /build/firefox-HLWaua/firefox-57.0+build4/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+1511363639899	geckodriver	INFO	geckodriver 0.19.1
+1511363639902	geckodriver	INFO	Listening on 127.0.0.1:33537
+1511363640984	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-profile" "/tmp/rust_mozprofile.BHYvVpAfxbkt"
+1511363641416	Marionette	INFO	Enabled via --marionette
+1511363642319	Marionette	INFO	Listening on port 34499
+1511363642392	Marionette	WARN	TLS certificate errors will be ignored for this session
+1511363642441	Marionette	DEBUG	Register listener.js for window 2147483649
+1511363642459	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1511363642494	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1511363642495	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1511363642788	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:52191/"
+1511363643220	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:52191/"
+JavaScript error: http://localhost:52191/order/84/, line 180: TypeError: jQuery(...).datepicker is not a function
+[Child 29647, Chrome_ChildThread] WARNING: pipe error (21): Соединение разорвано другой стороной: file /build/firefox-HLWaua/firefox-57.0+build4/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+[Child 29647, Chrome_ChildThread] WARNING: pipe error (3): Соединение разорвано другой стороной: file /build/firefox-HLWaua/firefox-57.0+build4/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+1511363840451	geckodriver	INFO	geckodriver 0.19.1
+1511363840453	geckodriver	INFO	Listening on 127.0.0.1:58819
+1511363841539	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-profile" "/tmp/rust_mozprofile.lELWkxRf19KD"
+1511363841921	Marionette	INFO	Enabled via --marionette
+1511363842842	Marionette	INFO	Listening on port 35417
+1511363842945	Marionette	WARN	TLS certificate errors will be ignored for this session
+1511363842991	Marionette	DEBUG	Register listener.js for window 2147483649
+1511363843011	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1511363843039	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1511363843039	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1511363843365	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:49555/"
+1511363844037	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:49555/"
+JavaScript error: http://localhost:49555/order/84/, line 180: TypeError: jQuery(...).datepicker is not a function
+[Child 29994, Chrome_ChildThread] WARNING: pipe error (20): Соединение разорвано другой стороной: file /build/firefox-HLWaua/firefox-57.0+build4/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+[Child 29994, Chrome_ChildThread] WARNING: pipe error (3): Соединение разорвано другой стороной: file /build/firefox-HLWaua/firefox-57.0+build4/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+1511364029831	geckodriver	INFO	geckodriver 0.19.1
+1511364029833	geckodriver	INFO	Listening on 127.0.0.1:53733
+1511364030918	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-profile" "/tmp/rust_mozprofile.MEG8XI3FKjCj"
+1511364031361	Marionette	INFO	Enabled via --marionette
+1511364032262	Marionette	INFO	Listening on port 38791
+1511364032341	Marionette	WARN	TLS certificate errors will be ignored for this session
+1511364032393	Marionette	DEBUG	Register listener.js for window 2147483649
+1511364032417	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1511364032455	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1511364032455	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1511364032758	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:46973/"
+1511364034833	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:46973/"
+JavaScript error: http://localhost:46973/order/84/, line 180: TypeError: jQuery(...).datepicker is not a function
+[Child 30290, Chrome_ChildThread] WARNING: pipe error (20): Соединение разорвано другой стороной: file /build/firefox-HLWaua/firefox-57.0+build4/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+[Child 30290, Chrome_ChildThread] WARNING: pipe error (3): Соединение разорвано другой стороной: file /build/firefox-HLWaua/firefox-57.0+build4/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+1511364069960	geckodriver	INFO	geckodriver 0.19.1
+1511364069963	geckodriver	INFO	Listening on 127.0.0.1:58485
+1511364071083	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-profile" "/tmp/rust_mozprofile.vKG5lEuisZTv"
+1511364071536	Marionette	INFO	Enabled via --marionette
+1511364072677	Marionette	INFO	Listening on port 39859
+1511364072697	Marionette	WARN	TLS certificate errors will be ignored for this session
+1511364072745	Marionette	DEBUG	Register listener.js for window 2147483649
+1511364072769	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1511364072807	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1511364072808	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1511364073064	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:41107/"
+1511364073437	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:41107/"
+JavaScript error: http://localhost:41107/order/84/, line 180: TypeError: jQuery(...).datepicker is not a function
+[Child 30486, Chrome_ChildThread] WARNING: pipe error (21): Соединение разорвано другой стороной: file /build/firefox-HLWaua/firefox-57.0+build4/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+[Child 30486, Chrome_ChildThread] WARNING: pipe error (35): Соединение разорвано другой стороной: file /build/firefox-HLWaua/firefox-57.0+build4/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+[Child 30486, Chrome_ChildThread] WARNING: pipe error (3): Соединение разорвано другой стороной: file /build/firefox-HLWaua/firefox-57.0+build4/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+1511364108802	geckodriver	INFO	geckodriver 0.19.1
+1511364108804	geckodriver	INFO	Listening on 127.0.0.1:57911
+1511364109930	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-profile" "/tmp/rust_mozprofile.QlERNOruR9Yn"
+1511364110340	Marionette	INFO	Enabled via --marionette
+1511364111426	Marionette	INFO	Listening on port 40361
+1511364111437	Marionette	WARN	TLS certificate errors will be ignored for this session
+1511364111484	Marionette	DEBUG	Register listener.js for window 2147483649
+1511364111512	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1511364111553	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1511364111553	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1511364111928	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:47805/"
+1511364112223	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:47805/"
+[Child 30650, Chrome_ChildThread] WARNING: pipe error (19): Соединение разорвано другой стороной: file /build/firefox-HLWaua/firefox-57.0+build4/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+[Child 30650, Chrome_ChildThread] WARNING: pipe error (3): Соединение разорвано другой стороной: file /build/firefox-HLWaua/firefox-57.0+build4/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+1511364119290	geckodriver	INFO	geckodriver 0.19.1
+1511364119293	geckodriver	INFO	Listening on 127.0.0.1:50617
+1511364120415	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-profile" "/tmp/rust_mozprofile.Nm4HDyv8YdCe"
+1511364120817	Marionette	INFO	Enabled via --marionette
+1511364121913	Marionette	INFO	Listening on port 41471
+1511364121928	Marionette	WARN	TLS certificate errors will be ignored for this session
+1511364121988	Marionette	DEBUG	Register listener.js for window 2147483649
+1511364122005	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1511364122044	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1511364122044	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1511364122298	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:42327/"
+1511364122567	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:42327/"
+1511364129319	geckodriver	INFO	geckodriver 0.19.1
+1511364129321	geckodriver	INFO	Listening on 127.0.0.1:51795
+1511364130443	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-profile" "/tmp/rust_mozprofile.s8bJCR4XzkKq"
+1511364130867	Marionette	INFO	Enabled via --marionette
+1511364131982	Marionette	INFO	Listening on port 41169
+1511364132055	Marionette	WARN	TLS certificate errors will be ignored for this session
+1511364132109	Marionette	DEBUG	Register listener.js for window 2147483649
+1511364132129	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1511364132164	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1511364132164	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1511364132426	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:54395/"
+1511364132673	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:54395/"
+JavaScript error: http://localhost:54395/order/84/, line 180: TypeError: jQuery(...).datepicker is not a function
+[Child 30920, Chrome_ChildThread] WARNING: pipe error (20): Соединение разорвано другой стороной: file /build/firefox-HLWaua/firefox-57.0+build4/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+[Child 30920, Chrome_ChildThread] WARNING: pipe error (3): Соединение разорвано другой стороной: file /build/firefox-HLWaua/firefox-57.0+build4/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+1511364196815	geckodriver	INFO	geckodriver 0.19.1
+1511364196817	geckodriver	INFO	Listening on 127.0.0.1:52863
+1511364197942	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-profile" "/tmp/rust_mozprofile.LYqwQaBh2mj8"
+1511364198361	Marionette	INFO	Enabled via --marionette
+1511364199521	Marionette	INFO	Listening on port 41433
+1511364199558	Marionette	WARN	TLS certificate errors will be ignored for this session
+1511364199608	Marionette	DEBUG	Register listener.js for window 2147483649
+1511364199635	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1511364199669	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1511364199669	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1511364199913	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:54517/"
+1511364200137	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:54517/"
+JavaScript error: http://localhost:54517/order/84/, line 180: TypeError: jQuery(...).datepicker is not a function
+[Child 31102, Chrome_ChildThread] WARNING: pipe error (19): Соединение разорвано другой стороной: file /build/firefox-HLWaua/firefox-57.0+build4/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+[Child 31102, Chrome_ChildThread] WARNING: pipe error (3): Соединение разорвано другой стороной: file /build/firefox-HLWaua/firefox-57.0+build4/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+1511364220140	geckodriver	INFO	geckodriver 0.19.1
+1511364220142	geckodriver	INFO	Listening on 127.0.0.1:43595
+1511364221264	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-profile" "/tmp/rust_mozprofile.Xglca5iXXEHJ"
+1511364221709	Marionette	INFO	Enabled via --marionette
+1511364222767	Marionette	INFO	Listening on port 46021
+1511364222773	Marionette	WARN	TLS certificate errors will be ignored for this session
+1511364222818	Marionette	DEBUG	Register listener.js for window 2147483649
+1511364222837	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1511364222878	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1511364222878	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1511364223217	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:35773/"
+1511364223438	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:35773/"
+JavaScript error: http://localhost:35773/order/84/, line 180: TypeError: jQuery(...).datepicker is not a function
+[Child 31260, Chrome_ChildThread] WARNING: pipe error (21): Соединение разорвано другой стороной: file /build/firefox-HLWaua/firefox-57.0+build4/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+[Child 31260, Chrome_ChildThread] WARNING: pipe error (3): Соединение разорвано другой стороной: file /build/firefox-HLWaua/firefox-57.0+build4/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
